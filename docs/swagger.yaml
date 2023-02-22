@@ -1,0 +1,257 @@
+basePath: /
+definitions:
+  domain.Task:
+    properties:
+      createdAt:
+        type: string
+      description:
+        type: string
+      dueAt:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      phone:
+        type: string
+      updatedAt:
+        type: string
+      userId:
+        type: string
+    type: object
+  http.CreateTaskRequest:
+    properties:
+      task:
+        $ref: '#/definitions/http.Task'
+    required:
+    - task
+    type: object
+  http.Task:
+    properties:
+      description:
+        example: description why
+        type: string
+      name:
+        example: my-task-1
+        type: string
+      phone:
+        example: "+7931315455"
+        type: string
+      userId:
+        example: miron
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Тестовое задание wb логистика. Бабичев Мирон
+  title: Черный список пользователей
+  version: "1.0"
+paths:
+  /blacklist/:
+    delete:
+      consumes:
+      - application/json
+      description: Deletes all the records.
+      parameters:
+      - description: the id of the caller
+        in: header
+        name: CallerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      security:
+      - JWT: []
+      summary: Delete all records in blacklist
+      tags:
+      - write
+    get:
+      consumes:
+      - application/json
+      description: Reads and returns all who were added to blacklist.
+      parameters:
+      - description: the id of the caller
+        in: header
+        name: CallerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Task'
+            type: array
+        default:
+          description: unexpected error
+          schema:
+            type: string
+      security:
+      - JWT: []
+      summary: Get all who were added to blacklist
+      tags:
+      - read
+    post:
+      consumes:
+      - application/json
+      description: Creates record in blacklist.
+      parameters:
+      - description: New task
+        in: body
+        name: task
+        required: true
+        schema:
+          $ref: '#/definitions/http.CreateTaskRequest'
+      - description: the id of the caller
+        in: header
+        name: CallerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      security:
+      - JWT: []
+      summary: Creates new record in blacklist
+      tags:
+      - write
+  /blacklist/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Returns who had this name and were blacklisted
+      parameters:
+      - description: Name
+        in: path
+        name: name
+        required: true
+        type: string
+      - description: the id of the caller
+        in: header
+        name: CallerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Task'
+        "401":
+          description: not found
+          schema:
+            type: string
+        default:
+          description: unexpected error
+          schema:
+            type: string
+      security:
+      - JWT: []
+      summary: Get by name
+      tags:
+      - read
+  /blacklist/{phone}:
+    get:
+      consumes:
+      - application/json
+      description: Returns who had this phone and were blacklisted
+      parameters:
+      - description: Phone
+        in: path
+        name: phone
+        required: true
+        type: string
+      - description: the id of the caller
+        in: header
+        name: CallerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Task'
+        "401":
+          description: not found
+          schema:
+            type: string
+        default:
+          description: unexpected error
+          schema:
+            type: string
+      security:
+      - JWT: []
+      summary: Get by phone
+      tags:
+      - read
+  /blacklist/{taskid}:
+    delete:
+      consumes:
+      - application/json
+      description: Deletes record in blacklist.
+      parameters:
+      - description: Task ID
+        in: path
+        name: taskid
+        required: true
+        type: integer
+      - description: the id of the caller
+        in: header
+        name: CallerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      security:
+      - JWT: []
+      summary: Deletes task
+      tags:
+      - write
+    get:
+      consumes:
+      - application/json
+      description: Reads a single blacklisted person and returns it.
+      parameters:
+      - description: Task ID
+        in: path
+        name: taskid
+        required: true
+        type: integer
+      - description: the id of the caller
+        in: header
+        name: CallerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Task'
+        "401":
+          description: not found
+          schema:
+            type: string
+        default:
+          description: unexpected error
+          schema:
+            type: string
+      security:
+      - JWT: []
+      summary: Get
+      tags:
+      - read
+securityDefinitions:
+  JWT:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
