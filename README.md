@@ -1,2 +1,3 @@
 # wb
-![Image alt](https://github.com/miron239/wb/1.png)
+
+![Иллюстрация к проекту](https://github.com/miron239/wb/raw/master/1.png)
