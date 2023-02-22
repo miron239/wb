@@ -8,8 +8,8 @@ import (
 
 	config2 "github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/feature/rds/auth"
-	"github.com/ragoncsa/todo/config"
-	"github.com/ragoncsa/todo/domain"
+	"github.com/miron239/wb/config"
+	"github.com/miron239/wb/domain"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

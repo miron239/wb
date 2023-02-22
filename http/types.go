@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ragoncsa/todo/domain"
+	"github.com/miron239/wb/domain"
 )
 
 // This section is implemented based on

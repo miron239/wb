@@ -6,8 +6,8 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ragoncsa/todo/authz"
-	"github.com/ragoncsa/todo/domain"
+	"github.com/miron239/wb/authz"
+	"github.com/miron239/wb/domain"
 )
 
 type TaskService struct {

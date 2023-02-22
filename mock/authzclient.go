@@ -1,6 +1,6 @@
 package mock
 
-import "github.com/ragoncsa/todo/authz"
+import "github.com/miron239/wb/authz"
 
 type AlwaysAllow struct{}
 

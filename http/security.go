@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ragoncsa/todo/authz"
+	"github.com/miron239/wb/authz"
 	"google.golang.org/api/idtoken"
 )
 

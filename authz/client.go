@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/go-resty/resty/v2"
-	"github.com/ragoncsa/todo/config"
+	"github.com/miron239/wb/config"
 )
 
 type decisionResult struct {

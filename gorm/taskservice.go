@@ -1,7 +1,7 @@
 package gorm
 
 import (
-	"github.com/ragoncsa/todo/domain"
+	"github.com/miron239/wb/domain"
 	"gorm.io/gorm"
 )
 

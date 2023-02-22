@@ -3,17 +3,17 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/miron239/wb/authz"
 	"log"
 	"os"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	ginadapter "github.com/awslabs/aws-lambda-go-api-proxy/gin"
-	"github.com/ragoncsa/todo/authz"
-	"github.com/ragoncsa/todo/config"
-	docs "github.com/ragoncsa/todo/docs"
-	"github.com/ragoncsa/todo/gorm"
-	"github.com/ragoncsa/todo/http"
+	"github.com/miron239/wb/config"
+	docs "github.com/miron239/wb/docs"
+	"github.com/miron239/wb/gorm"
+	"github.com/miron239/wb/http"
 	"github.com/spf13/viper"
 )
 

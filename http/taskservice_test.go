@@ -7,9 +7,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ragoncsa/todo/config"
-	"github.com/ragoncsa/todo/domain"
-	"github.com/ragoncsa/todo/mock"
+	"github.com/miron239/wb/config"
+	"github.com/miron239/wb/domain"
+	"github.com/miron239/wb/mock"
 )
 
 func TestGetTask(t *testing.T) {

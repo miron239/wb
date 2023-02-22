@@ -1,6 +1,6 @@
 package mock
 
-import "github.com/ragoncsa/todo/domain"
+import "github.com/miron239/wb/domain"
 
 type TaskService struct {
 	TaskFn      func(id int) (*domain.Task, error)
